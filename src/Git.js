@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { GitUserProvider } from "./gitUserContext";
 import GitUsers from "./GitUsers";
+import './Git.css';
 
 const Git = () => {
 
@@ -11,7 +12,7 @@ const Git = () => {
     const getUsers = async (search) => {
         if (search !== "") {
             setIsLoading(true);
-            await fetch(`https://api.github.com/search/users?q=${search}&limit=20`)
+            await fetch(`https://api.github.com/search/users?q=${search}&limit=24`)
                 .then((response) => response.json())
                 .then((data) => {
                     if (data.message) {
@@ -32,9 +33,13 @@ const Git = () => {
     const githubUserContent = { search, error, users, isLoading }
     return (
         <GitUserProvider value={githubUserContent}>
-            <h1>GitHub User Searcher</h1>
+            <div className='gitusers'>
+            <h1 className="title">GitHub User Searcher</h1>
             <input type='text' placeholder="type a user..." onChange={(event) => setsearch(event.target.value)}></input>
+            </div>
+            <div className='gitusers'>
             <GitUsers />
+            </div>
         </GitUserProvider>);
 }
 export default Git;

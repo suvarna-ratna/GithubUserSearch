@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { gitUserContext } from './gitUserContext';
+import './GitUsers.css'
 
 const GitUsers = () => {
     const githubUserContext = useContext(gitUserContext)
@@ -13,10 +14,17 @@ const GitUsers = () => {
                         <p>No Results Found</p>
                         : githubUserContext.users.map((user) =>
                             <li key={user.id}>
-                                <img src={user.avatar_url} alt="" width="3%" />
-                                <a href={`https://www.github.com/${user.login}`} rel="noopener noreferrer" target="_blank">
-                                    {user.login}
-                                </a>
+                                <div class="column">
+    <div class="card">
+      <img src={user.avatar_url} alt="user-pic"/>
+      <div class="container">
+        <h2>{user.login}</h2>
+        <p><button class="button"><a href={`https://www.github.com/${user.login}`} rel="noopener noreferrer" target="_blank">
+                                  Open User Profile</a></button></p>
+      </div>
+    </div>
+  </div>
+                                 
                             </li>)}
                 </ul>)
             }

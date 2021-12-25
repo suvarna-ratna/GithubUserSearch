@@ -1,0 +1,19 @@
+.gitusers {
+  text-align: center;
+}
+/* .gitusers ul {
+ display: flex;
+ flex-wrap: wrap;
+} */
+.gitusers li {
+  list-style: none;
+  /* border: solid 1px rgb(15, 27, 134);
+  margin: 0.5%;
+  padding: 0.5%; */
+}
+.gitusers img {
+    border-radius: 50%;
+}
+.gitusers .title{
+    background-color: aquamarine;
+}
